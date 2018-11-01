@@ -160,7 +160,7 @@ class MAIXLoader:
         buf = b'\xc0' \
               + (packet.replace(b'\xdb', b'\xdb\xdd').replace(b'\xc0', b'\xdb\xdc')) \
               + b'\xc0'
-        print('[WRITE]', binascii.hexlify(buf))
+#        print('[WRITE]', binascii.hexlify(buf))
         return self._port.write(buf)
 
     def read_loop(self):
