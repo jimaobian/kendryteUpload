@@ -230,8 +230,8 @@ class MAIXLoader:
         time.sleep(0.01)
         print('-- RESET to LOW --')
         # Pull reset down and keep 10ms
-        self._port.dtr = False
-        self._port.rts = True
+        self._port.dtr = True
+        self._port.rts = False
         time.sleep(0.01)
         print('-- RESET to HIGH, BOOT --')
         # Pull IO16 to low and release reset
