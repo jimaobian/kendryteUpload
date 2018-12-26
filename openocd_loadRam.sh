@@ -10,6 +10,11 @@ openocd \
 -c "set _TARGETNAME \$_CHIPNAME.cpu" \
 -c "target create \$_TARGETNAME riscv -chain-position \$_TARGETNAME" \
 -c "init" \
+-c "reg mstatus 0x00" \
+-c "mww 0x50000058 0xffffffff" \
+-c "mww 0x5000005C 0xffffffff" \
+-c "mww 0x50440030 0xffffffff" \
+-c "sleep 200" \
 -c "halt" \
 -c "load_image ${1} 0x80000000 bin" \
 -c "verify_image ${1} 0x80000000 bin" \
